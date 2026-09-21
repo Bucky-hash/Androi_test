@@ -7,39 +7,36 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- Ô nhập điểm GPA -->
+    <EditText
+        android:id="@+id/edtGpaInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập GPA (0.0 - 4.0)"
+        android:inputType="numberDecimal"
+        android:layout_marginTop="16dp"
+        tools:ignore="MissingConstraints" />
+
+    <!-- Nút bấm để kích hoạt Extension -->
+
+    <!-- TextView để hiển thị kết quả xếp loại từ Extension Double -->
+    <Button
+        android:id="@+id/btnUpdateGpa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cập Nhật Điểm GPA"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="128dp" />
+
     <TextView
-        android:id="@+id/tvName"
+        android:id="@+id/tvGpaBadge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nguyễn Bảo Phúc"
-        android:textSize="22sp"
+        android:text="Kết quả xếp loại sẽ hiện ở đây"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp" />
-
-    <TextView
-        android:id="@+id/tvRole"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sinh viên Công nghệ Thông tin"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/tvName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp" />
-
-    <TextView
-        android:id="@+id/tvID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:text="2415053122130"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvName" />
-
-
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="75dp"
+        tools:layout_editor_absoluteY="81dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,20 +13,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        // 1. apply — khởi tạo binding và gán content view cùng lúc
-        binding = ActivityMainBinding.inflate(layoutInflater).apply {
-            setContentView(root)
-        }
-        // 2. with — set nhiều thuộc tính trên cùng 1 view
-        with(binding.tvName) {
-            text = "Nguyễn Bảo Phúc"
-            textSize = 20f
-        }
-        // 3. let — xử lý insets, chỉ chạy khi view tìm thấy (non-null an toàn)
-        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
-            insets.getInsets(WindowInsetsCompat.Type.systemBars()).let { systemBars ->
-                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+        binding.btnUpdateGpa.setOnClickListener {
+            val rawInput = binding.edtGpaInput.trimmedText() // Dùng extension cho EditText
+            val gpa = rawInput.toDoubleOrNull()
+
+            if (gpa == null || gpa !in 0.0..4.0) {
+                binding.edtGpaInput.error = "GPA không hợp lệ"
+                return@setOnClickListener
             }
-            insets
+
+            toast("Xếp loại: ${gpa.toAcademicRanking()}") // Dùng extension cho Context và Double
         }
     }
+}
